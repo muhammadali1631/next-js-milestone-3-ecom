@@ -6,7 +6,7 @@ const FeaturedProducts = async () => {
   const data = await (await fetch("http://localhost:3000/api/products", {
     cache: "no-store",
   })).json();
-  const filteredData = data.filter((product:ProductCardType) => product.tags.includes("featured"));
+  const filteredData:ProductCardType[] = data.filter((product:ProductCardType) => product.tags.includes("featured"));
   
   
   return (

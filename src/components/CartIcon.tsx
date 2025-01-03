@@ -22,7 +22,7 @@ const CartIcon = ({ id, add }: { id: number; add?: string }) => {
   };
 
    const delCart = (id: number) => {
-    let cartItem = cart.filter((faID: number) => id !== faID);
+    const cartItem = cart.filter((faID: number) => id !== faID);
     setCart(cartItem);
     if (cartItem.length === 0) {
       localStorage.setItem("cart", JSON.stringify([]));

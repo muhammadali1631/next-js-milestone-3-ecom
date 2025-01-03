@@ -1,8 +1,8 @@
-import ProductCard from '@/components/ProductCard';
+import ProductCard, { ProductCardType } from '@/components/ProductCard';
 import React from 'react'
 
 const page = async() => {
-    const data = await (await fetch("http://localhost:3000/api/products", {
+    const data:ProductCardType[] = await (await fetch("http://localhost:3000/api/products", {
         cache: "no-store",
       })).json();
   return (

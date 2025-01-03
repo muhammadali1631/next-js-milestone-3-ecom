@@ -2,7 +2,7 @@ import React from 'react'
 import { FaRegHeart } from "react-icons/fa6";
 
 
-const WishIcon = ({id}: {id:number}) => {
+const WishIcon = () => {
     
   return (
    <div className='h-10 w-10 bg-white rounded-full flex justify-center items-center'>
