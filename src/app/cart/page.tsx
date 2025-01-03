@@ -26,7 +26,7 @@ const Page = () => {
     ids.includes(product.id)
   );
   const delCart = (id: number) => {
-    let cartItem = ids.filter((faID: number) => id !== faID);
+    const cartItem = ids.filter((faID: number) => id !== faID);
     setIds(cartItem);
     if (cartItem.length === 0) {
       localStorage.setItem("cart", JSON.stringify([]));
