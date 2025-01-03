@@ -7,7 +7,7 @@ import { FaArrowRight } from "react-icons/fa6";
 import { ProductCardType } from "@/components/ProductCard";
 import Link from "next/link";
 
-const page = () => {
+const Page = () => {
   const [data, setData] = useState<ProductCardType[]>([]);
   const [ids, setIds] = useState<number[]>([]);
   
@@ -113,4 +113,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

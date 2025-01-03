@@ -13,7 +13,7 @@ const FeaturedProducts = async () => {
     <div>
       <h1 className="text-4xl text-center font-bold my-7">Featured Products</h1>
       <div className="grid grid-cols-2 gap-2 sm:gap-6 md:grid-cols-4 px-4 flex-shrink-0 ">
-        {filteredData.map((product: any, index: number) => (
+        {filteredData.map((product: ProductCardType, index: number) => (
           <ProductCard data={product} key={index} />
         ))}
       </div>
