@@ -54,7 +54,7 @@ export default function Slider() {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [data]);
+  }, []);
 
   const handleLineClick = (index: number) => {
     setFade(true);
