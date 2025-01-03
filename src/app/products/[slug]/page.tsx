@@ -8,7 +8,7 @@ export default async function Page({
   params: Promise<{ slug: string }>;
 }) {
   const data = await (
-    await fetch("http://localhost:3000/api/products", {
+    await fetch("https://next-js-milestone-3-ecom.vercel.app//api/products", {
       cache: "no-store",
     })
   ).json();

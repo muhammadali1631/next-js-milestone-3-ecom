@@ -13,7 +13,7 @@ const Page = () => {
   
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/products")
+    fetch("https://next-js-milestone-3-ecom.vercel.app//api/products")
       .then((response) => response.json())
       .then((data) => setData(data));
     const Ids = localStorage.getItem("cart");

@@ -2,7 +2,7 @@ import ProductCard, { ProductCardType } from '@/components/ProductCard';
 import React from 'react'
 
 const page = async() => {
-    const data:ProductCardType[] = await (await fetch("http://localhost:3000/api/products", {
+    const data:ProductCardType[] = await (await fetch("https://next-js-milestone-3-ecom.vercel.app//api/products", {
         cache: "no-store",
       })).json();
   return (
