@@ -38,10 +38,10 @@ const Header = () => {
       </nav>
 
       <div className="flex space-x-4 text-xl items-center">
-        <Link href={'/wishlist'}>
         <FaSearch className='hidden md:flex' />
-        </Link>
+        <Link href={'/wishlist'}>
         <FaHeart />
+        </Link>
         <Link href={'/cart'}>
         <AiOutlineShopping className='text-2xl' />
         </Link>
