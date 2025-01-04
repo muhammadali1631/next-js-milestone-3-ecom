@@ -38,7 +38,6 @@ const ProductCard = ({ data, index }: {data: ProductCardType, index?:number}) =>
   const ref = React.useRef(null);
 
   return (
-    <Link href={`/products/${data.slug}`}>
     <motion.div
       className={` ${index === 2 ? "flex-shrink-0 w-[48vw] md:w-[300px] md:max-w-xs mx-auto" : "max-w-xs mx-auto"}`}
       ref={ref}
@@ -51,6 +50,7 @@ const ProductCard = ({ data, index }: {data: ProductCardType, index?:number}) =>
     >
       <div onMouseEnter={() => {setHoveredIndex(1);  setIsHovered(true);}}
           onMouseLeave={() => {setHoveredIndex(0);  setIsHovered(false);}} className="relative bg-gray-100 rounded-lg h-44 sm:h-80 flex items-center">
+          <Link href={`/products/${data.slug}`} className="w-full h-full">
         <Image
           src={data.images[color][hoveredIndex]}
           alt="Formal Shoe"
@@ -59,16 +59,18 @@ const ProductCard = ({ data, index }: {data: ProductCardType, index?:number}) =>
           className="w-full h-full object-contain mix-blend-multiply"
           
         />
+        </Link>
         <AnimatePresence>
         {isHovered && (
           <motion.div
-            className="absolute bottom-5 w-full flex justify-center gap-2"
+            className="absolute bottom-5 z-20 w-full flex justify-center gap-2"
             initial="hidden"
             animate="visible"
             exit="hidden"
           >
             {[CartIcon, WishIcon].map((Icon, index) => (
-              <motion.div key={index} variants={iconVariants} custom={index}>
+              
+              <motion.div key={index} variants={iconVariants} custom={index} className="cursor-pointer">
                 <Icon id={data.id}/>
               </motion.div>
             ))}
@@ -87,7 +89,7 @@ const ProductCard = ({ data, index }: {data: ProductCardType, index?:number}) =>
           ></button>
         ))}
       </div>
-
+        <Link href={`/products/${data.slug}`}>
       <h3 className="text-lg font-semibold text-gray-800 line-clamp-2">
         {data.title}
       </h3>
@@ -96,10 +98,11 @@ const ProductCard = ({ data, index }: {data: ProductCardType, index?:number}) =>
           ${data.discountedPrice}
         </span>
         <span className="text-red-500 line-through">${data.price}</span>
+        
       </div>
+      </Link>
 
     </motion.div>
-    </Link>
   );
 };
 

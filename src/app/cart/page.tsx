@@ -2,7 +2,6 @@
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { RiDeleteBin6Fill } from "react-icons/ri";
-import { SlArrowRight } from "react-icons/sl";
 import { FaArrowRight } from "react-icons/fa6";
 import { ProductCardType } from "@/components/ProductCard";
 import Link from "next/link";
@@ -13,7 +12,7 @@ const Page = () => {
   
 
   useEffect(() => {
-    fetch("https://next-js-milestone-3-ecom.vercel.app//api/products")
+    fetch("https://next-js-milestone-3-ecom.vercel.app/api/products")
       .then((response) => response.json())
       .then((data) => setData(data));
     const Ids = localStorage.getItem("cart");
@@ -36,32 +35,32 @@ const Page = () => {
 }
   return (
     <div className=" px-3 sm:px-16 ">
-      <h1 className="flex  items-center gap-3  ml-1 mt-8 ">
-        {" "}
-        Home <SlArrowRight /> Cart{" "}
-      </h1>
       <h1 className="text-4xl  ml-1 mt-10 font-bold mb-5">Your Cart</h1>
 
       <div className="flex justify-around flex-wrap gap-5 ">
         <div className="flex flex-col gap-6 border mb-10 rounded-xl ml-1  w-[700px]  sm:p-5 p-2">
           {filteredData.map((item, index) => (
-            <Link key={index} href={`/products/${item.slug}`}>
             <div
               
               className={`flex gap-4 border-b-2 py-2 ${
                 index === 2 ? "border-b-0 " : "border-b-2 "
               }`}
             >
+            <Link key={index} href={`/products/${item.slug}`}>
+
               <Image
                 src={item.images[item.colors[0]][0]}
                 alt={"asdf"}
                 className=" w-28 h-28  border rounded  object-cover"
               />
+              </Link>
               <div className="w-[90%] flex flex-col justify-center">
                 <div className="flex justify-between gap-2 items-center">
-                    <h2 className="line-clamp-1 w-[80%]">
+                  <Link href={`/products/${item.slug}`} className=" w-[80%]">
+                    <h2 className="line-clamp-1">
                     {item.title}
                     </h2>
+                  </Link>
                   <RiDeleteBin6Fill onClick={() => delCart(item.id)} className="text-red-600  text-2xl  cursor-pointer" />
                 </div>
 
@@ -70,7 +69,6 @@ const Page = () => {
                 </div>
               </div>
             </div>
-            </Link>
             
           ))}
         </div>

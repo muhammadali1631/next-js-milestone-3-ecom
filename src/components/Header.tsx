@@ -37,8 +37,10 @@ const Header = () => {
         </Link>
       </nav>
 
-      <div className="hidden md:flex space-x-4 text-xl items-center">
-        <FaSearch />
+      <div className="flex space-x-4 text-xl items-center">
+        <Link href={'/wishlist'}>
+        <FaSearch className='hidden md:flex' />
+        </Link>
         <FaHeart />
         <Link href={'/cart'}>
         <AiOutlineShopping className='text-2xl' />

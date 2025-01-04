@@ -29,7 +29,7 @@ function Footer() {
                     <Link href={'/cart'} className="hover:underline">Cart</Link>
                 </li>
                 <li className="mb-4">
-                    <Link href={"/"} className="hover:underline">Wish list</Link>
+                    <Link href={"/wishlist"} className="hover:underline">Wish list</Link>
                 </li>
             </ul>
         </div>
