@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import { RiDeleteBin6Fill } from 'react-icons/ri'
-const page = () => {
+const Page = () => {
     const [data, setData] = useState<ProductCardType[]>([]);
       const [ids, setIds] = useState<number[]>([]);
       
@@ -42,8 +42,9 @@ const page = () => {
               className={`flex gap-4 border-b-2 py-2 ${
                 index === 2 ? "border-b-0 " : "border-b-2 "
               }`}
+              key={index}
             >
-            <Link key={index} href={`/products/${item.slug}`}>
+            <Link  href={`/products/${item.slug}`}>
 
               <Image
                 src={item.images[item.colors[0]][0]}
@@ -74,4 +75,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
